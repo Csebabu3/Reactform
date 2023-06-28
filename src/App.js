@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Mainsidebar from './Components/Mainsidebar';
+import TopNew from './Components/TopNew';
+import Sidecontent from './Sidecontent';
+import Mailbox from './Mailbox';
+import Sideimages from './Sideimages';
+import FormValid from './Components/FormValid';
+
+import StaffForm from './Components/StaffForm';
+import Table from './Components/Table';
+import Contact from './Components/Contact';
+import Layout from './Components/Layout';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Layout/>}>
+          <Route path="home" element={<Sidecontent />} />
+         
+          <Route path='Faculty' element={<FormValid />} />
+          <Route path="" element={<FormValid />} />
+            <Route path="Faculty" element={<Mailbox />} />
+           
+            <Route path="Student" element={<StaffForm />} />
+            <Route path='Contact' element={<Contact />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+      
     </div>
   );
 }
